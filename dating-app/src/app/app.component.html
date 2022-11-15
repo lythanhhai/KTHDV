@@ -1,0 +1,8 @@
+<app-navbar></app-navbar>
+<div *ngIf="accountService.currentUser$ | async">
+  <h3 class="text-center">
+    Hi, {{ (accountService.currentUser$ | async)?.username }}
+  </h3>
+  <app-members></app-members>
+</div>
+<app-register *ngIf="!(accountService.currentUser$ | async)"></app-register>
